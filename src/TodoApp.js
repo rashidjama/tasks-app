@@ -2,14 +2,19 @@ import React from 'react'
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import TodoProvider from './contexts/TodoContext'
+import PageConent from './PageContent'
+
 
 export default function TodoApp() {
 
   return (
-    <TodoProvider>
-      <h1>Todo List App</h1>
-      <TodoList />
-      <TodoForm />
-    </TodoProvider>
+    <PageConent>
+      <div className='container pt-5'>
+        <TodoProvider>
+          <TodoForm />
+          <TodoList />
+        </TodoProvider>
+    </div>
+    </PageConent>
   )
 }

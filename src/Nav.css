@@ -1,0 +1,8 @@
+.active-dark {
+  color: #F50057 !important;
+  border-bottom: 1px solid #F50057;
+}
+.active-light {
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}

@@ -1,8 +1,8 @@
-import TodoApp from "./TodoApp";
+import Nav from './Nav'
 
 function App() {
   return (
-    <TodoApp />
+    <Nav />
   );
 }
 
