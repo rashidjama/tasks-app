@@ -30,7 +30,7 @@ export default function TodoList() {
               </div>
             </div>
           </div>
-      <ul className='list-group'>
+      <div className='list-group'>
         { items.map(item => (
           <Todo
             id={item.id}
@@ -39,7 +39,7 @@ export default function TodoList() {
             completed={item.completed}
           />
         ))}
-      </ul>
+      </div>
     </>
   )
 }
