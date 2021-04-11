@@ -6,7 +6,8 @@ function PageContent(props) {
   const styles = {
     width: '100vw',
     height: '100vh',
-    backgroundColor: darkMode ? '#333' : '#fff'
+    backgroundColor: darkMode ? '#333' : '#fff',
+    overflowY: 'scroll',
   }
   return (
     <div style={styles}>

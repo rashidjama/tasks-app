@@ -9,7 +9,7 @@ import { ThemeContext } from './contexts/Theme';
 export default function Nav() {
   const { darkMode, toggleTheme} = useContext(ThemeContext);
 
-  const styles = {color: darkMode ? 'black' : 'white', textDecoration: 'none', marginRight: '15px', fontSize: '20px', padding: '0.2rem'}
+  const styles = {color: darkMode ? 'black' : 'white', textDecoration: 'none', marginRight: '6px', fontSize: '18px', padding: '0.2rem'}
   
   return (
       <div>
@@ -21,6 +21,7 @@ export default function Nav() {
               <NavLink style={styles} exact activeClassName={darkMode ? 'active-dark': 'active-light'} to='/notebook'>Note-Book</NavLink>
           </span>
           <span>
+            {darkMode ? 'Dark' : 'Light'}
             <Switch onClick={_=> toggleTheme()}/>
           </span>
         </nav>

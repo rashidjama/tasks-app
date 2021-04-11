@@ -9,7 +9,7 @@ export default function TodoApp() {
 
   return (
     <PageConent>
-      <div className='container pt-5'>
+      <div className='container pt-2'>
         <TodoProvider>
           <TodoForm />
           <TodoList />
