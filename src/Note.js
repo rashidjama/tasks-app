@@ -1,4 +1,4 @@
-import React, {useState, useContext } from 'react';
+import React, {useState, useContext, memo } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import Paper from '@material-ui/core/Paper'
 import NoteEditForm from './NoteEditForm';
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Note({ id, note, created_at }) {
+function Note({ id, note, created_at }) {
   const [isPosting, setPost] = useState(false);
   const [open, setOpen] = useState(false);
   const dispatch = useContext(DispatchContext);
@@ -56,3 +56,5 @@ export default function Note({ id, note, created_at }) {
     )
   }
 }
+
+export default memo(Note)

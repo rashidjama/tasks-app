@@ -2,7 +2,7 @@ import uuid from 'uuid'
 export default function TodoReducer(state, action) {
   switch(action.type) {
     case 'ADD':
-      return [...state, {task: action.newTask, id: uuid(), completed: false}];
+      return [{task: action.newTask, id: uuid(), completed: false},...state];
     case 'EDIT':
       return state.map(item => item.id === action.id ? {...item, task: action.updatedItem} : item);
     case 'REMOVE':

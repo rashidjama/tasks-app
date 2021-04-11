@@ -14,7 +14,7 @@ export default function TodoForm() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(value.length > 25) {
+    if(value.length > 30) {
       setNotify(true);
     } else {
       dispatch({type: 'ADD', newTask: value})

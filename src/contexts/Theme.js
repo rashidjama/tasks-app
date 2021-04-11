@@ -1,8 +1,13 @@
-import React, {useState, createContext} from 'react'
+import React, {useEffect, useState, createContext} from 'react'
 export const ThemeContext = createContext();
 
 function ThemeProvider(props) {
-  const [darkMode, setMode] = useState(false);
+  const initialMode = JSON.parse(window.localStorage.getItem('darkMode') || false)
+  const [darkMode, setMode] = useState(initialMode);
+
+  useEffect(_=> {
+    window.localStorage.setItem('darkMode', JSON.stringify(darkMode))
+  }, [ darkMode])
 
   const toggleTheme = _ => setMode(!darkMode)
 

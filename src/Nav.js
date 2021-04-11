@@ -21,8 +21,8 @@ export default function Nav() {
               <NavLink style={styles} exact activeClassName={darkMode ? 'active-dark': 'active-light'} to='/notebook'>Note-Book</NavLink>
           </span>
           <span>
-            {darkMode ? 'Dark' : 'Light'}
-            <Switch onClick={_=> toggleTheme()}/>
+            {darkMode ? 'Light' : 'Dark'}
+            <Switch onChange={_=> toggleTheme()}/>
           </span>
         </nav>
           <Route exact path='/' component={TodoApp}/>

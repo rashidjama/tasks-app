@@ -12,7 +12,7 @@ let date = `${month}/${day}/${today.getFullYear()}`;
 export default function NoteReducer(state, action) {
   switch(action.type) {
     case 'ADD':
-      return [...state, {note: action.newNote, id: uuid(), created_at: date}]
+      return [{note: action.newNote, id: uuid(), created_at: date},...state]
     case 'EDIT':
       return state.map(note => note.id === action.id ? {...note, note: action.updatedNote} : note)
     case 'REMOVE':
