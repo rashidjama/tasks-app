@@ -6,15 +6,16 @@ import TodoApp from './TodoApp';
 import './Nav.css'
 import { ThemeContext } from './contexts/Theme';
 
+
 export default function Nav() {
   const { darkMode, toggleTheme} = useContext(ThemeContext);
 
-  const styles = {color: darkMode ? 'black' : 'white', textDecoration: 'none', marginRight: '6px', fontSize: '18px', padding: '0.2rem'}
+  const styles = {color: darkMode ? 'black' : 'white', textDecoration: 'none', marginRight: '6px', fontSize: '15px', padding: '0.2rem'}
   
   return (
       <div>
-        <nav className={darkMode ? 'nav bg-light p-3 d-flex justify-content-between align-items-center' :
-         'nav bg-primary p-3 d-flex justify-content-between align-items-center text-white'}>
+        <nav className={darkMode ? 'nav bg-light p-2 d-flex justify-content-between align-items-center' :
+         'nav bg-dark p-2 d-flex justify-content-between align-items-center text-white'}>
           <span className=''>
               <NavLink exact activeClassName={darkMode ? 'active-dark': 'active-light'} to='/' style={styles}>Daily-Tasks</NavLink>
   

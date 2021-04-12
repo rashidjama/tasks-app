@@ -3,7 +3,9 @@ import ReactHtmlParser from 'react-html-parser';
 import Paper from '@material-ui/core/Paper'
 import NoteEditForm from './NoteEditForm';
 import { DispatchContext } from './contexts/NoteContext';
-import { Dialog, DialogContent, DialogActions, Button, makeStyles } from '@material-ui/core';
+import { Dialog, DialogContent, DialogActions, Button, makeStyles, IconButton } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit'
 
 const useStyles = makeStyles({
   dialog: {
@@ -30,8 +32,12 @@ function Note({ id, note, created_at }) {
         <span className='d-flex justify-content-between align-items-center'>
           <span className='text-muted'>Created On: {created_at}</span>
           <span>
-          <button className='btn btn-sm btn-outline-primary mr-2' onClick={_=> toggleForm()}>Edit Note</button>
-          <button className='btn btn-sm btn-outline-danger' onClick={_=> setOpen(true)}>Remove</button>
+          <IconButton size='small' color='primary' onClick={_=> toggleForm()}>
+            <EditIcon />
+          </IconButton>
+          <IconButton size='small' color='secondary' onClick={_=> setOpen(true)}>
+            <DeleteIcon />
+          </IconButton>
 
           </span>
         </span>

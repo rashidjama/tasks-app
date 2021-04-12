@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { NoteContext } from './contexts/NoteContext';
 import Note from './Note';
-import NoteForm from './NoteForm'
+import NoteForm from './NoteForm';
+import Button from '@material-ui/core/Button';
 
 export default function NotesList() {
   const [isPosting, setPost] = useState(false);
@@ -19,11 +20,10 @@ export default function NotesList() {
   } else {
     return (
       <div>
-        { notes.length < 2 ?  <button className='btn btn-primary mb-3' onClick={_=> toggleForm()}>Create New Note</button> :
-        
+        { notes.length < 2 ?  <Button variant='contained' color='primary' className='btn btn-block  mb-3' onClick={_=> toggleForm()}>Create New Note</Button> :
         <span className='d-flex justify-content-between align-items-center mb-3'>
-          <button className='btn btn-primary' onClick={_=> toggleForm()} >Create New Note</button>
-          <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete All Notes</button>
+          <Button size='small' variant='contained' color='primary' onClick={_=> toggleForm()} >Create New Note</Button>
+          <Button size='small' variant='contained' color='secondary' type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete All Notes</Button>
         </span>
         }
 

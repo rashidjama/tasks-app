@@ -1,6 +1,7 @@
 import React, { useContext} from 'react'
 import Todo from './Todo';
-import { TodoContext } from './contexts/TodoContext'
+import { TodoContext } from './contexts/TodoContext';
+import { Button, Divider} from '@material-ui/core'
 
 export default function TodoList() {
   const  items  = useContext(TodoContext);
@@ -12,7 +13,7 @@ export default function TodoList() {
 
   return (
     <>
-    { items.length > 1 ?  <button type="button" className="btn btn-danger  btn-sm mt-4 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete All Tasks</button>: ''}
+    { items.length > 1 ?  <Button size='small' color='secondary' type="button" className="mb-2 border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete All Tasks!</Button>: ''}
 
      {/* Modal */}
      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -20,7 +21,7 @@ export default function TodoList() {
               <div className="modal-content">
 
                 <div className="modal-body d-flex justify-content-between align-items-center">
-                  Do You Delete All Tasks?
+                  Are You Sure To Delete All Tasks?
                   <span>
                     <button onClick={clearTasks} type="button" className="btn btn-danger mr-2"  data-bs-dismiss="modal" >Yes</button>
 
@@ -32,12 +33,15 @@ export default function TodoList() {
           </div>
       <div className='list-group'>
         { items.map(item => (
+          <>
           <Todo
             id={item.id}
             key={item.id}
             task={item.task}
             completed={item.completed}
           />
+          <Divider />
+          </>
         ))}
       </div>
     </>

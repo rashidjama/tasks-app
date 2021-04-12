@@ -4,7 +4,9 @@ import { DispatchContext } from './contexts/TodoContext'
 import Checkbox from '@material-ui/core/Checkbox';
 import './Todo.css';
 import { ThemeContext } from './contexts/Theme';
-import { Dialog, DialogContent, DialogActions, Button, makeStyles, Paper} from '@material-ui/core';
+import { Dialog, DialogContent, DialogActions, Button, makeStyles, Paper, IconButton} from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit'
 
 const useStyles = makeStyles({
   dialog: {
@@ -30,15 +32,19 @@ function Todo({ id, task, completed }) {
     return <EditTodo id={id} task={task} toggleEdit={toggleEdit}/>
   } else {
     return (
-    <Paper className=' d-flex justify-content-between mb-2 bg-light align-items-center'>
+    <div className=' d-flex justify-content-between align-items-center'>
      <div className='d-flex align-items-center'>
      <Checkbox onClick={_=> dispatch({type: 'TOGGLE', id:id, completed: completed})} checked={completed} />
       <span className={completed ? 'Completed' : ''}>{task}
       </span>
      </div>
       <span>
-      <button className={darkMode ? 'btn btn-sm btn-outline-dark mr-1' : 'btn btn-sm btn-outline-primary mr-1'} onClick={toggleEdit}>Edit</button>
-      <button className='btn btn-sm btn-outline-danger mr-2' onClick={_=> setOpen(true)}>&#10005;</button>
+      <IconButton size='small' color='primary' onClick={toggleEdit}>
+        <EditIcon />
+      </IconButton>
+      <IconButton size='small' color='secondary' onClick={_=> setOpen(true)}>
+        <DeleteIcon />
+      </IconButton>
       </span>
       <Dialog
         classes={{
@@ -57,7 +63,7 @@ function Todo({ id, task, completed }) {
         </DialogActions>
           </DialogContent>
         </Dialog>
-    </Paper>
+    </div>
   )
   }
 }
