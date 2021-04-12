@@ -21,7 +21,7 @@ export default function TodoList() {
               <div className="modal-content">
 
                 <div className="modal-body d-flex justify-content-between align-items-center">
-                  Are You Sure To Delete All Tasks?
+                  Delete All Tasks?
                   <span>
                     <button onClick={clearTasks} type="button" className="btn btn-danger mr-2"  data-bs-dismiss="modal" >Yes</button>
 
@@ -33,15 +33,14 @@ export default function TodoList() {
           </div>
       <div className='list-group'>
         { items.map(item => (
-          <>
+          <div key={item.id}>
           <Todo
             id={item.id}
-            key={item.id}
             task={item.task}
             completed={item.completed}
           />
           <Divider />
-          </>
+          </div>
         ))}
       </div>
     </>
