@@ -13,7 +13,7 @@ export default function TodoList() {
 
   return (
     <>
-    { items.length > 1 ?  <Button size='small' color='secondary' type="button" className="mb-2 border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete All Tasks!</Button>: ''}
+    { items.length > 1 ?  <Button size='small' color='secondary' type="button" className="mb-3 border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete All Tasks!</Button>: ''}
 
      {/* Modal */}
      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
